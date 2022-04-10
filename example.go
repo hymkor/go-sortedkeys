@@ -1,9 +1,10 @@
+//go:build run
 // +build run
 
 package main
 
 import (
-	"github.com/zetamatta/go-sortedkeys"
+	"github.com/hymkor/go-sortedkeys"
 )
 
 func main() {
@@ -19,8 +20,9 @@ func main() {
 		println(key, val)
 	}
 
-	println("*** for _,key := range sortedkeys.Strings(sample){...} ***")
-	for _, key := range sortedkeys.Strings(sample) {
-		println(key, sample[key])
+	println("*** p := sortedkeys(sample) ; for p.Range(){...} ***")
+	p := sortedkeys.New(sample)
+	for p.Range() {
+		println(p.Key, p.Value)
 	}
 }
