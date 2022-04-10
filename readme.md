@@ -1,7 +1,7 @@
 go-sortedkeys
 =============
 
-Get sorted string-keys of map.
+Make iterator for key-value pairs of map by sorted order
 
 example
 -------
