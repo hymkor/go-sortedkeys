@@ -4,18 +4,19 @@ import (
 	"sort"
 )
 
-type HasOrder interface {
+// "constaints"
+type Ordered interface {
 	~string | ~int | ~int8 | ~int16 | ~int32 | ~int64 | ~float32 | ~float64 | ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64
 }
 
-type Iterator[K HasOrder, V any] struct {
+type Iterator[K Ordered, V any] struct {
 	map1   map[K]V
 	slice1 []K
 	Key    K
 	Value  V
 }
 
-func New[K HasOrder, V any](map1 map[K]V) *Iterator[K, V] {
+func New[K Ordered, V any](map1 map[K]V) *Iterator[K, V] {
 	slice1 := make([]K, 0, len(map1))
 	for key := range map1 {
 		slice1 = append(slice1, key)
