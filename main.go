@@ -40,3 +40,15 @@ func (it *Iterator[K, V]) Range() bool {
 	it.slice1 = it.slice1[1:]
 	return true
 }
+
+func (it *Iterator[K, V]) Descend() bool {
+	if len(it.slice1) <= 0 {
+		return false
+	}
+	L := len(it.slice1) - 1
+	it.Key = it.slice1[L]
+	it.Value = it.map1[it.Key]
+
+	it.slice1 = it.slice1[:L]
+	return true
+}
