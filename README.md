@@ -1,6 +1,8 @@
 go-sortedkeys
 =============
 
+[![GoDoc](https://godoc.org/github.com/hymkor/go-sortedkeys?status.svg)](https://godoc.org/github.com/hymkor/go-sortedkeys)
+
 Make iterator for key-value pairs of map by sorted order
 
 example
