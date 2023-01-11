@@ -41,6 +41,10 @@ func (it *Iterator[K, V]) Range() bool {
 	return true
 }
 
+func (it *Iterator[K, V]) Ascend() bool {
+	return it.Range()
+}
+
 func (it *Iterator[K, V]) Descend() bool {
 	if len(it.slice1) <= 0 {
 		return false
