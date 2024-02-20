@@ -45,10 +45,10 @@ func main() {
 
 ```go run example.go|
 *** for key,val := range sample{...} ***
-A 1
-B 2
 C 3
 D 4
+A 1
+B 2
 
 *** p := sortedkeys(sample) ; for p.Range(){...} ***
 A 1
