@@ -56,3 +56,20 @@ func (it *Iterator[K, V]) Descend() bool {
 	it.slice1 = it.slice1[:L]
 	return true
 }
+
+func Each[K Ordered, V any](map1 map[K]V) func(func(K, V) bool) {
+	slice1 := make([]K, 0, len(map1))
+	for key := range map1 {
+		slice1 = append(slice1, key)
+	}
+	sort.Slice(slice1, func(i, j int) bool {
+		return slice1[i] < slice1[j]
+	})
+	return func(f func(K, V) bool) {
+		for _, key := range slice1 {
+			if !f(key, map1[key]) {
+				break
+			}
+		}
+	}
+}
