@@ -19,10 +19,17 @@ func main() {
 	for key, val := range sample {
 		println(key, val)
 	}
+	println()
 
 	println("*** p := sortedkeys(sample) ; for p.Range(){...} ***")
 	p := sortedkeys.New(sample)
 	for p.Range() {
 		println(p.Key, p.Value)
+	}
+	println()
+
+	println("*** for Go1.22 rangefunc ***")
+	for key, val := range sortedkeys.Each(sample) {
+		println(key, val)
 	}
 }
